@@ -1,0 +1,23 @@
+<div>
+	<table>
+		<tbody>
+			<tr>
+				<td width="16.66%"></td>
+				<td width="16.66%"></td>
+				<td width="16.66%"></td>
+				<td width="16.66%"></td>
+				<td width="16.66%"></td>
+				<td width="16.66%"></td>
+				
+			</tr>
+			<tr *ngFor="let imageList of displayArray; let i = index;">
+				<td [style.height]="imgNumber == bigImageIndex ? '340px' : '170px'" *ngFor="let imgNumber of imageList; let j = index;" 
+				(mousemove)="mouseOutEvent();" (mouseover)="mouseInEvent(imgNumber);" 
+				[rowSpan]="imgNumber == bigImageIndex ? 2 : 1" [colSpan]="imgNumber == bigImageIndex ? 2 : 1">
+					<img [src]="imagesDisplay[imgNumber]" style="height: 100%; width: 100%;">
+				</td>
+				
+			</tr>
+		</tbody>
+	</table>
+</div>

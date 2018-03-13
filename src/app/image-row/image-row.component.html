@@ -1,4 +1,4 @@
-<div>
+<!--div>
 	<table>
 		<tbody>
 			<tr>
@@ -12,12 +12,22 @@
 			</tr>
 			<tr *ngFor="let imageList of displayArray; let i = index;">
 				<td [style.height]="imgNumber == bigImageIndex ? '340px' : '170px'" *ngFor="let imgNumber of imageList; let j = index;" 
-				(mousemove)="mouseOutEvent();" (mouseover)="mouseInEvent(imgNumber);" 
-				[rowSpan]="imgNumber == bigImageIndex ? 2 : 1" [colSpan]="imgNumber == bigImageIndex ? 2 : 1">
+					(mousemove)="mouseOutEvent();" (mouseover)="mouseInEvent(imgNumber);" 
+					[rowSpan]="imgNumber == bigImageIndex ? 2 : 1" [colSpan]="imgNumber == bigImageIndex ? 2 : 1">
+					
 					<img [src]="imagesDisplay[imgNumber]" style="height: 100%; width: 100%;">
-				</td>
-				
+				</td>				
 			</tr>
 		</tbody>
 	</table>
+</div--> 
+
+<div #parentDiv style="width: 100%; height: 100%;">
+
+	<div *ngFor="let prop of properties; let i = index;" class="imageDefault"
+		[style.top]="prop.positionY + 'px'"  [style.left]="prop.positionX + 'px'" [style.height]="prop.imageSizeY + 'px'" [style.width]="prop.imageSizeX + 'px'">
+		<app-image 
+			[properties]="prop" [oldProperties]="oldProperties[i]" [updateAnimationSubject]="updateAnimationSubject" 
+			(mouseoverEvent)="mouseInEvent($event);" (mouseoutEvent)="mouseOutEvent();"></app-image> 
+	</div>
 </div>

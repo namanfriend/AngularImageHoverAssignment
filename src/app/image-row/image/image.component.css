@@ -1,0 +1,22 @@
+.imageDefault {
+	height: 100%;
+	width: 100%; 
+	animation-duration: 2s;	
+	position: relative;
+}
+
+
+@keyframes leftRight1 {
+    0%   {left:10%; top:0px;}
+    100% {left:0px; top:0px;}
+}
+
+@keyframes leftRight {
+    0%   {left:100px; top:0px;}
+    100% {left:0px; top:0px;}
+}
+
+@keyframes rightLeft {
+    0%   {left:-100px; top:0px;}
+    100% {left:0px; top:0px;}
+}

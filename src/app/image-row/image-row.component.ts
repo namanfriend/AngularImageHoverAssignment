@@ -1,5 +1,5 @@
 import {ImageProperties} from './image/image.component';
-import {Component, OnInit, ElementRef, ViewChild} from '@angular/core';
+import {Component, OnInit, ElementRef, ViewChild, Input} from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 @Component({
@@ -12,6 +12,7 @@ import { BehaviorSubject } from 'rxjs';
 export class ImageRowComponent implements OnInit {
 
   constructor() {}
+  @Input() imagesDisplay: any[];
   displayArray = [
     [0, 2, 4, 6, 8],
     [1, 3, 5, 7]
@@ -19,17 +20,6 @@ export class ImageRowComponent implements OnInit {
   bigImageIndex = 2;
   resetDone = true;
   @ViewChild('parentDiv') parentDivRef:ElementRef;
-  imagesDisplay = [
-    'assets/images/1.jpg',
-    'assets/images/2.jpg',
-    'assets/images/3.jpg',
-    'assets/images/4.jpg',
-    'assets/images/5.jpg',
-    'assets/images/6.jpg',
-    'assets/images/7.jpg',
-    'assets/images/8.jpg',
-    'assets/images/9.jpg'
-  ];
   imageHeight = 100;
   imageWidth = 100;
   properties: any[];

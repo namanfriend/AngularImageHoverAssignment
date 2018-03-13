@@ -1,2 +1,3 @@
-<img [src]="properties.location"  class="imageDefault"
+<img [src]="properties.location"  class="imageDefault" [style.background-color]="bigImageIndex == properties.id ? 'lightcyan' : 'none'" style="border: 1px gray solid;"
+
 	(mouseover)="mouseOverChange();" (mouseout)="mouseOutChange();" [style.animation-name]="animationClass"> 

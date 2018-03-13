@@ -24,7 +24,7 @@
 
 <div #parentDiv style="width: 100%; height: 100%;">
 
-	<div *ngFor="let prop of properties; let i = index;" class="imageDefault" style="border: 1px gray solid;"
+	<div *ngFor="let prop of properties; let i = index;" class="imageDefault" 
 		[style.top]="prop.positionY + 'px'"  [style.left]="prop.positionX + 'px'" [style.height]="prop.imageSizeY + 'px'" [style.width]="prop.imageSizeX + 'px'">
 		<app-image 
 			[properties]="prop" [oldProperties]="oldProperties[i]" [updateAnimationSubject]="updateAnimationSubject" 

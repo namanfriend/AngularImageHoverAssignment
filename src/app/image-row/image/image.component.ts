@@ -21,27 +21,28 @@ export class ImageComponent implements OnInit {
   constructor() { }
   @Input() properties: ImageProperties;
   @Input() oldProperties: ImageProperties;
-  @Input() updateAnimationSubject: BehaviorSubject<string>;
+  @Input() updateAnimationSubject: BehaviorSubject<number>;
   
   @Output() mouseoverEvent: EventEmitter<number> = new EventEmitter();
   @Output() mouseoutEvent: EventEmitter<number> = new EventEmitter();
   animationClass: string;
+  bigImageIndex: number;
   
   ngOnInit() {
     this.updateAnimationSubject.subscribe(this.updateAnimation.bind(this));
-    
+    this.properties.imageSizeX
   }
 
   mouseOverChange(){
     this.mouseoverEvent.emit(this.properties.id);
-    this.updateAnimationSubject.next("Change");
   }
   
   mouseOutChange(){
     this.mouseoutEvent.emit(this.properties.id);
   }
   
-  updateAnimation(){
+  updateAnimation($event){
+    this.bigImageIndex = $event;
     let displacement = this.oldProperties.positionX + this.oldProperties.imageSizeX - this.properties.positionX - this.properties.imageSizeX;
     let displacement2 = this.oldProperties.positionX - this.properties.positionX;
     if(displacement > 0 || displacement2 > 0){

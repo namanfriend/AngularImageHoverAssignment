@@ -25,7 +25,7 @@ export class ImageRowComponent implements OnInit {
   properties: any[];
   oldProperties: any[];
   parentDivHeightOffset = 0;
-  updateAnimationSubject: BehaviorSubject<string> = new BehaviorSubject<string>('');
+  updateAnimationSubject: BehaviorSubject<any> = new BehaviorSubject<any>('');
 
   ngOnInit() {
     this.imageHeight = Math.floor(this.parentDivRef.nativeElement.clientHeight / 2);
@@ -33,6 +33,7 @@ export class ImageRowComponent implements OnInit {
     this.parentDivHeightOffset = this.parentDivRef.nativeElement.offsetTop;
     this.shuffleImages();
     console.log("parent Div Offset " + this.parentDivHeightOffset);
+    this.updateAnimationSubject.next(this.bigImageIndex);
   };
 
   shuffleImages(){
@@ -108,6 +109,7 @@ export class ImageRowComponent implements OnInit {
     this.bigImageIndex = imgNumber;
     this.displayArray = [topRow, bottomRow];
     this.shuffleImages();
+    this.updateAnimationSubject.next(this.bigImageIndex);
   }
 
   mouseOutEvent() {
